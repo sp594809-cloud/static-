@@ -614,6 +614,21 @@ textarea.form-control {
   display: none;
 }
 
+
+/* Contact page: office left + form right — stack on phone */
+.contact-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .contact-grid-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* Footer */
 .site-footer {
   background-color: var(--primary);
