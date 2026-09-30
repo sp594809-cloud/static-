@@ -45,7 +45,7 @@ function renderFooter() {
 
           <div class="footer-col">
             <h4>Quick Links</h4>
-            <ul>
+            <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="services.html">Services</a></li>
@@ -57,14 +57,14 @@ function renderFooter() {
 
           <div class="footer-col">
             <h4>Practice Areas</h4>
-            <ul>
+            <ul class="footer-links">
               ${serviceLinks}
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>Contact</h4>
-            <ul>
+            <ul class="footer-links">
               ${phoneLinks}
               <li><a href="mailto:${email}">${email}</a></li>
             </ul>
@@ -77,7 +77,7 @@ function renderFooter() {
 
         <div class="footer-bottom">
           <p>&copy; ${year} ${firmName}. All rights reserved.</p>
-          <p style="font-size:0.8rem; color:#64748B; margin-top:0.35rem;">ICAI Firm Registration as applicable. This website is for general information only.</p>
+          <p style="font-size:0.8rem; color:#94A3B8; margin-top:0.35rem;">ICAI Firm Registration as applicable. This website is for general information only.</p>
         </div>
       </div>
     </footer>

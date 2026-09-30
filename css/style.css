@@ -552,6 +552,51 @@ textarea.form-control {
   min-height: 120px;
 }
 
+/* Phone field – better mobile UI */
+.phone-input-wrap {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--white);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.phone-input-wrap:focus-within {
+  border-color: var(--primary);
+}
+.phone-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 0.85rem;
+  background: #F1F5F9;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-right: 1px solid var(--border-color);
+  white-space: nowrap;
+  user-select: none;
+}
+.phone-input-wrap .form-control {
+  border: none;
+  border-radius: 0;
+  flex: 1;
+  min-width: 0;
+}
+.phone-input-wrap .form-control:focus {
+  outline: none;
+  border: none;
+}
+
+/* Enquiry form: stack phone + email on small screens */
+@media (max-width: 640px) {
+  .form-row-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
 .form-error {
   color: #DC2626;
   font-size: 0.82rem;
@@ -609,6 +654,29 @@ textarea.form-control {
 .footer-links a:hover {
   color: var(--white);
 }
+
+/* Footer links must stay light on dark blue background */
+.site-footer a {
+  color: #B0C4DE;
+}
+.site-footer a:hover {
+  color: #FFFFFF;
+}
+.site-footer .footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer .footer-col ul li {
+  margin-bottom: 0.6rem;
+}
+.site-footer .footer-col p {
+  color: #94A3B8;
+}
+.footer-bottom p {
+  color: #94A3B8;
+}
+
 
 .footer-disclaimer-box {
   background: rgba(255, 255, 255, 0.05);
