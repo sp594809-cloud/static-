@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles & Updates | Koshti & Company | Chartered Accountants</title>
+  <meta name="description" content="Technical articles and regulatory updates regarding GST, Income Tax return filing, advance tax rules, and ROC corporate filings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <div id="site-header"></div>
+
+  <!-- Banner -->
+  <section style="background: var(--primary); color: #fff; padding: 3rem 0;">
+    <div class="container">
+      <h1 style="color: #fff; margin-bottom: 0.5rem;">Articles & Technical Updates</h1>
+      <p style="color: #D0DCEB; font-size: 1.05rem;">Factual insights on statutory compliance, tax procedures, and corporate governance.</p>
+    </div>
+  </section>
+
+  <!-- Articles List -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-3" id="articles-page-grid">
+        <!-- Dynamically rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('articles-page-grid');
+      if (!grid) return;
+      const articles = typeof getArticles === 'function' ? getArticles() : [];
+      grid.innerHTML = articles.map(a => {
+        const publishedDate = new Date(a.published_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        return `
+          <div class="card">
+            <div style="margin-bottom: 0.75rem;">
+              <span class="badge-tag">${a.category}</span>
+              <small style="color: #64748B; margin-left: 8px;">${publishedDate}</small>
+            </div>
+            <h3 class="card-title">${a.title}</h3>
+            <p class="card-body">${a.excerpt}</p>
+            <a href="article.html?a=${a.slug}" class="card-link">Read Full Article &rarr;</a>
+          </div>
+        `;
+      }).join('') || '<p>No updates published yet.</p>';
+    });
+  </script>
+</body>
+</html>
